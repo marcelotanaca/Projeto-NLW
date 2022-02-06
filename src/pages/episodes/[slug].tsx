@@ -5,9 +5,10 @@ import { convertDurationToTimeString } from "../../ultils/convertDurationToTimeS
 import { api } from "../../services/api";
 import styles from "../episodes/episode.module.scss";
 import Image from "next/image";
+import Head from "next/head";
 import Link from "next/link";
-import { PlayerContext } from "../../contexts/PlayerContext";
-import { useContext } from "react";
+import { usePlayer } from "../../contexts/PlayerContext";
+
 
 type Episode = {
   id: string;
@@ -27,9 +28,13 @@ type EpisodeProps = {
 
 export default function Episode({episode}: EpisodeProps) {
 
-    const { play } = useContext(PlayerContext)
+    const { play } = usePlayer()
+    
     return(
         <div className={styles.episode}>
+          <Head>
+            <title>{episode.title} | Marcelo Podcastr</title>
+          </Head>
           <div className={styles.thumbnailContainer}>
             <Link href="/">  
               <button>

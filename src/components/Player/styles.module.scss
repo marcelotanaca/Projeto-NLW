@@ -25,7 +25,7 @@
   footer {
     align-self: stretch;
 
-    &.empty {
+    &.empty .progress {
       opacity: 0.5;
     }
   }
@@ -114,6 +114,15 @@
     &:hover:not(:disabled) {
       filter: brightness(0.70);
     }
+
+    &.isActive {
+      filter: invert(42%) sepia(93%) saturate(1352%) hue-rotate(87deg) contrast(119%);
+    }
+    
+    &.isActive:hover {
+      filter: invert(70%) sepia(93%) saturate(1352%) hue-rotate(87deg) brightness(119%) contrast(119%);
+    }
+    
     &.playButton {
       width: 3rem;
       height: 3rem;
